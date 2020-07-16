@@ -1,12 +1,13 @@
 // this will start an executor on a Jenkins agent with the docker label
 pipeline {
   agent any
-  stage("Env Variables") {
-    steps {
-      sh "apt-get install build-essential"
-    }
-  }
+  
   stages {
+    stage("Env Variables") {
+      steps {
+        sh "apt-get install build-essential"
+      }
+    }
     stage('build base image') {
       steps {
         sh 'make build-base'
