@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+	<testsuite tests="2" failures="0" time="0.004" name="api_app/httpd/handler">
+		<properties>
+			<property name="go.version" value="go1.14.5"></property>
+		</properties>
+		<testcase classname="handler" name="TestNewsfeedGet" time="0.000"></testcase>
+		<testcase classname="handler" name="TestNewsfeedPost" time="0.000"></testcase>
+	</testsuite>
+	<testsuite tests="5" failures="0" time="0.003" name="api_app/platform/newsfeed">
+		<properties>
+			<property name="go.version" value="go1.14.5"></property>
+		</properties>
+		<testcase classname="newsfeed" name="TestAdd" time="0.000"></testcase>
+		<testcase classname="newsfeed" name="TestAdd/Add_newsfeed_1" time="0.000"></testcase>
+		<testcase classname="newsfeed" name="TestAdd/Add_newsfeed_2" time="0.000"></testcase>
+		<testcase classname="newsfeed" name="TestAdd/Add_newsfeed_3" time="0.000"></testcase>
+		<testcase classname="newsfeed" name="TestGetAll" time="0.000"></testcase>
+	</testsuite>
+</testsuites>

@@ -16,14 +16,19 @@ func TestAdd(t *testing.T) {
 		want int
 	}{
 		{
-			name: "Test Hi Carlos",
+			name: "Add newsfeed 1",
 			args: args{title: "Title 1", post: "Post 1"},
 			want: 1,
 		},
 		{
-			name: "Test Hi Oscar",
+			name: "Add newsfeed 2",
 			args: args{title: "Title 2", post: "Post 2"},
 			want: 2,
+		},
+		{
+			name: "Add newsfeed 3",
+			args: args{title: "Title 3", post: "Post 3"},
+			want: 3,
 		},
 	}
 	for _, tt := range tests {

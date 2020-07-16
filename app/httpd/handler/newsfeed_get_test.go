@@ -2,7 +2,7 @@ package handler
 
 import (
 	"api_app/platform/mock_http"
-	"newsfeed"
+	"api_app/platform/newsfeed"
 	"net/http"
 	"testing"
 )

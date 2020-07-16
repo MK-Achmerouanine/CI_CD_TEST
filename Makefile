@@ -18,7 +18,7 @@ publish:
 
 build-base:
 	@echo ":::building base image"
-	docker build --rm -f Base.Dockerfile $(BUILD_BASE_ARGS) -t $(IMAGE_NAME)-base:$(BASE_TAG) .
+	docker build --tag $(IMAGE_NAME):$(BASE_TAG) --rm -f Base.Dockerfile $(BUILD_BASE_ARGS) -t $(IMAGE_NAME)-base:$(BASE_TAG) .
 
 build:
 	@echo ":::building image"
@@ -39,3 +39,10 @@ run:
 		-v `pwd`:/go/src/$(APP_NAME) \
 		-w /go/src/$(APP_NAME) \
 		golang:$(GOLANG_TAG) go run app/main.go
+
+run-dev:
+	@echo ":::running dev environment"
+	docker run --rm -it \
+		--name=Container_$(APP_NAME) \
+		-p $(PORT):80 \
+		$(IMAGE_NAME)-base:$(BASE_TAG) ./app
