@@ -3,13 +3,26 @@ pipeline {
   agent any
   
   stages {
-    stage("Env Variables") {
+    stage("build source code") {
+      agent {
+          // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
+          dockerfile {
+              filename 'Build.Dockerfile'
+              label 'my-defined-label'
+              additionalBuildArgs  '--build-arg version=${TAG_NAME}'
+              args '-v /tmp:/tmp'
+          }
+      }
       steps {
-        sh "cd app/"
-        sh "go build -o app"
+        sh "make run"
       }
     }
     stage('build base image') {
+      agent {
+          node {
+              label 'build base agent'
+          }
+      }
       steps {
         sh 'make build-base'
       }
