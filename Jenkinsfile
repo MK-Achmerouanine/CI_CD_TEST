@@ -3,7 +3,7 @@ pipeline {
   agent any
   stage("Env Variables") {
     steps {
-      sh "printenv"
+      sh "apt-get install build-essential"
     }
   }
   stages {
