@@ -5,7 +5,8 @@ pipeline {
   stages {
     stage("Env Variables") {
       steps {
-        sh "apt-get install build-essential"
+        sh "cd app/"
+        sh "go build -o app"
       }
     }
     stage('build base image') {
